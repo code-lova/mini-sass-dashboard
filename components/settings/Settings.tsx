@@ -23,7 +23,7 @@ const themes = [
   { value: "system", label: "System", icon: Monitor },
 ];
 
-export default function SettingsPage() {
+export default function Settings() {
   const { user } = useAuth();
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);

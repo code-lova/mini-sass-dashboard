@@ -7,48 +7,10 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  HelpCircle,
-  Book,
-  MessageCircle,
-  FileText,
-  Search,
-} from "lucide-react";
+import { HelpCircle, MessageCircle, Search } from "lucide-react";
+import { helpTopics, faqs } from "@/constants";
 
-const helpTopics = [
-  {
-    icon: Book,
-    title: "Getting Started",
-    description: "Learn the basics of using the dashboard",
-  },
-  {
-    icon: FileText,
-    title: "Documentation",
-    description: "Detailed guides and API references",
-  },
-  {
-    icon: MessageCircle,
-    title: "Contact Support",
-    description: "Get help from our support team",
-  },
-];
-
-const faqs = [
-  {
-    q: "How do I upgrade my plan?",
-    a: "Go to Billing > Available Plans and select the plan you want.",
-  },
-  {
-    q: "Can I export my data?",
-    a: "Yes, go to Settings > Data Management to export your data.",
-  },
-  {
-    q: "How do I add team members?",
-    a: "Navigate to Customers > Add Customer to invite team members.",
-  },
-];
-
-export default function HelpPage() {
+export default function Help() {
   return (
     <div className="space-y-6">
       <div>

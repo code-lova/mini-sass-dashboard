@@ -48,7 +48,7 @@ export default function DashboardPage() {
   const [mounted, setMounted] = useState(false);
 
   //A 3 sec delay simulating delay request from an api
-  // For a real api request i will fetch and cache the data using React Query or RTK Query  
+  // For a real api request i will fetch and cache the data using React Query or RTK Query
   // to avoid frequent fetch requests on every re-render, only fetch when data changes
   useEffect(() => {
     setMounted(true);

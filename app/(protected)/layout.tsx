@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 import { SidebarProvider } from "@/components/ui/sidebar";
-import { DashboardSidebar, MobileHeader } from "@/components/dashboard";
+import { DashboardSidebar, MobileHeader } from "@/components/sidebar";
 import { useAuth } from "@/contexts/auth-context";
 import PageLoading from "@/components/ui/page-loading";
 

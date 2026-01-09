@@ -2,46 +2,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Users, Search, Plus, MoreHorizontal } from "lucide-react";
+import { customers } from "@/constants"
 
-const customers = [
-  {
-    id: 1,
-    name: "Alice Johnson",
-    email: "alice@example.com",
-    plan: "Pro",
-    status: "Active",
-  },
-  {
-    id: 2,
-    name: "Bob Smith",
-    email: "bob@example.com",
-    plan: "Basic",
-    status: "Active",
-  },
-  {
-    id: 3,
-    name: "Carol Williams",
-    email: "carol@example.com",
-    plan: "Enterprise",
-    status: "Active",
-  },
-  {
-    id: 4,
-    name: "David Brown",
-    email: "david@example.com",
-    plan: "Pro",
-    status: "Inactive",
-  },
-  {
-    id: 5,
-    name: "Eva Martinez",
-    email: "eva@example.com",
-    plan: "Basic",
-    status: "Active",
-  },
-];
 
-export default function CustomersPage() {
+export default function Customers() {
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">

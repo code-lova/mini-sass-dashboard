@@ -2,32 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import {
-  LayoutDashboard,
-  BarChart3,
-  Settings,
-  Users,
-  CreditCard,
-  HelpCircle,
-  LogOut,
-} from "lucide-react";
+import { LayoutDashboard, LogOut } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/auth-context";
 import { ThemeToggle } from "@/components/theme-toggle";
-
-const navigation = [
-  { title: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
-  { title: "Analytics", href: "/dashboard/analytics", icon: BarChart3 },
-  { title: "Customers", href: "/dashboard/customers", icon: Users },
-  { title: "Billing", href: "/dashboard/billing", icon: CreditCard },
-  { title: "Settings", href: "/dashboard/settings", icon: Settings },
-];
-
-const secondaryNavigation = [
-  { title: "Help", href: "/dashboard/help", icon: HelpCircle },
-];
+import { navigation, secondaryNavigation } from "@/constants";
 
 interface MobileSidebarContentProps {
   onNavigate?: () => void;

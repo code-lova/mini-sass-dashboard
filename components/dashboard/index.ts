@@ -1,3 +1,2 @@
-export { DashboardSidebar } from "./sidebar";
-export { MobileHeader } from "./mobile-header";
-export { MobileSidebarContent } from "./mobile-sidebar-content";
+export { default as Dashboard } from './Dashboard'
+export { default as DashboardSkeleton } from './dashboard-skeleton'

@@ -4,11 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   LayoutDashboard,
-  BarChart3,
-  Settings,
-  Users,
-  CreditCard,
-  HelpCircle,
   LogOut,
   ChevronLeft,
 } from "lucide-react";
@@ -24,42 +19,8 @@ import {
 import { useSidebar } from "@/components/ui/sidebar";
 import { useAuth } from "@/contexts/auth-context";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { navigation, secondaryNavigation } from "@/constants";
 
-const navigation = [
-  {
-    title: "Dashboard",
-    href: "/dashboard",
-    icon: LayoutDashboard,
-  },
-  {
-    title: "Analytics",
-    href: "/dashboard/analytics",
-    icon: BarChart3,
-  },
-  {
-    title: "Customers",
-    href: "/dashboard/customers",
-    icon: Users,
-  },
-  {
-    title: "Billing",
-    href: "/dashboard/billing",
-    icon: CreditCard,
-  },
-  {
-    title: "Settings",
-    href: "/dashboard/settings",
-    icon: Settings,
-  },
-];
-
-const secondaryNavigation = [
-  {
-    title: "Help",
-    href: "/dashboard/help",
-    icon: HelpCircle,
-  },
-];
 
 export function DashboardSidebar() {
   const pathname = usePathname();

@@ -1,14 +1,9 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BarChart3, TrendingUp, TrendingDown, Activity } from "lucide-react";
+import { metrics } from "@/constants";
 
-const metrics = [
-  { label: "Page Views", value: "54,239", change: "+12.5%", up: true },
-  { label: "Bounce Rate", value: "42.3%", change: "-3.2%", up: false },
-  { label: "Avg. Duration", value: "3m 24s", change: "+8.1%", up: true },
-  { label: "Unique Visitors", value: "12,543", change: "+18.7%", up: true },
-];
 
-export default function AnalyticsPage() {
+export default function Analytics() {
   return (
     <div className="space-y-6">
       <div>
