@@ -7,6 +7,8 @@ export const metadata: Metadata = {
 };
 
 
-export const page = () => {
+const page = () => {
   return <Billing />;
 };
+
+export default page;

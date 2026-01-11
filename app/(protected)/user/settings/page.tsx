@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   description: "A minimal production-grade SaaS app Settings ",
 };
 
-export const page = () => {
+const page = () => {
   return <Settings />;
 };
+
+export default page;

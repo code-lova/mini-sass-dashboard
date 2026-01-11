@@ -32,7 +32,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        // User is signed in, get ID token and set as cookie
+        const idToken = await user.getIdToken();
+        document.cookie = `__session=${idToken}; path=/; max-age=3600; SameSite=Strict; Secure`;
+      } else {
+        // User is signed out, clear the cookie
+        document.cookie = `__session=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT`;
+      }
       setUser(user);
       setLoading(false);
     });
@@ -55,6 +63,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const signOut = async () => {
     await firebaseSignOut(auth);
+    // Clear the auth cookie
+    document.cookie = `__session=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT`;
   };
 
   return (

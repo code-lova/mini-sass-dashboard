@@ -22,7 +22,7 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { navigation, secondaryNavigation } from "@/constants";
 
 
-export function DashboardSidebar() {
+export function AppSidebar() {
   const pathname = usePathname();
   const { state, toggleSidebar, isMobile } = useSidebar();
   const { user, signOut } = useAuth();

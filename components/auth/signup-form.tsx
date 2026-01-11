@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
@@ -24,6 +24,8 @@ export function SignupForm() {
   const [error, setError] = useState<string | null>(null);
   const { signUp } = useAuth();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirect = searchParams.get('redirect') || '/user/dashboard';
 
   const form = useForm<SignupFormData>({
     resolver: zodResolver(signupSchema),
@@ -39,7 +41,7 @@ export function SignupForm() {
     setError(null);
     try {
       await signUp(data.email, data.password, data.name);
-      router.push("/dashboard");
+      router.push(redirect);
     } catch (err) {
       const errorMessage =
         err instanceof Error ? err.message : "Failed to create account";

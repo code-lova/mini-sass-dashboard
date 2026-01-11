@@ -11,27 +11,27 @@ import {
 export const navigation = [
   {
     title: "Dashboard",
-    href: "/dashboard",
+    href: "/user/dashboard",
     icon: LayoutDashboard,
   },
   {
     title: "Analytics",
-    href: "/dashboard/analytics",
+    href: "/user/analytics",
     icon: BarChart3,
   },
   {
     title: "Customers",
-    href: "/dashboard/customers",
+    href: "/user/customers",
     icon: Users,
   },
   {
     title: "Billing",
-    href: "/dashboard/billing",
+    href: "/user/billing",
     icon: CreditCard,
   },
   {
     title: "Settings",
-    href: "/dashboard/settings",
+    href: "/user/settings",
     icon: Settings,
   },
 ];
@@ -39,7 +39,7 @@ export const navigation = [
 export const secondaryNavigation = [
   {
     title: "Help",
-    href: "/dashboard/help",
+    href: "/user/help",
     icon: HelpCircle,
   },
 ];

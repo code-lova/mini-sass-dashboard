@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
@@ -24,6 +24,8 @@ export function LoginForm() {
   const [error, setError] = useState<string | null>(null);
   const { signIn } = useAuth();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirect = searchParams.get('redirect') || '/user/dashboard';
 
   const form = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
@@ -37,7 +39,7 @@ export function LoginForm() {
     setError(null);
     try {
       await signIn(data.email, data.password);
-      router.push("/dashboard");
+      router.push(redirect);
     } catch (err) {
       const errorMessage =
         err instanceof Error ? err.message : "Failed to sign in";
