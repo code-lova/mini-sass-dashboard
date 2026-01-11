@@ -1,11 +1,20 @@
+"use client";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Users, Search, Plus, MoreHorizontal } from "lucide-react";
-import { customers } from "@/constants"
-
+import { customers } from "@/constants";
+import { useSimulatedDelay } from "@/hooks/use-simulated-delay";
+import PageLoading from "@/components/ui/page-loading";
 
 export default function Customers() {
+  const isLoading = useSimulatedDelay(1200); // 1.2 second delay
+
+  if (isLoading) {
+    return <PageLoading message="Loading customers..." />;
+  }
+
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">

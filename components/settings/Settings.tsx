@@ -16,6 +16,8 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { updateProfile } from "firebase/auth";
+import { useSimulatedDelay } from "@/hooks/use-simulated-delay";
+import PageLoading from "@/components/ui/page-loading";
 
 const themes = [
   { value: "light", label: "Light", icon: Sun },
@@ -31,6 +33,7 @@ export default function Settings() {
   const [isSaving, setIsSaving] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const isLoading = useSimulatedDelay(800); // 0.8 second delay
 
   useEffect(() => {
     setMounted(true);
@@ -41,6 +44,10 @@ export default function Settings() {
       setName(user.displayName);
     }
   }, [user?.displayName]);
+
+  if (isLoading) {
+    return <PageLoading message="Loading settings..." />;
+  }
 
   const handleSaveProfile = async () => {
     if (!user) return;

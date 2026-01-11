@@ -34,7 +34,7 @@ export default function Error({
             Something went wrong!
           </h2>
           <p className="text-muted-foreground mt-2">
-            An error occurred while loading the dashboard.
+            An error occurred while loading this page.
           </p>
         </div>
         <button

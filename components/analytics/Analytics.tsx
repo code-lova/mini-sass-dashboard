@@ -1,9 +1,20 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BarChart3, TrendingUp, TrendingDown, Activity } from "lucide-react";
 import { metrics } from "@/constants";
+import PageLoading from "@/components/ui/page-loading";
+import { useSimulatedDelay } from "@/hooks/use-simulated-delay";
 
 
 export default function Analytics() {
+  const isLoading = useSimulatedDelay(1500); // 1.5 second delay
+
+  if (isLoading) {
+    return <PageLoading message="Loading analytics..." />;
+  }
+
   return (
     <div className="space-y-6">
       <div>

@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Card,
   CardContent,
@@ -9,8 +11,16 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { HelpCircle, MessageCircle, Search } from "lucide-react";
 import { helpTopics, faqs } from "@/constants";
+import { useSimulatedDelay } from "@/hooks/use-simulated-delay";
+import PageLoading from "@/components/ui/page-loading";
 
 export default function Help() {
+  const isLoading = useSimulatedDelay(900); // 0.9 second delay
+
+  if (isLoading) {
+    return <PageLoading message="Loading help..." />;
+  }
+
   return (
     <div className="space-y-6">
       <div>

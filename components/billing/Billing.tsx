@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Card,
   CardContent,
@@ -8,8 +10,16 @@ import {
 import { Button } from "@/components/ui/button";
 import { CreditCard, Check, Zap } from "lucide-react";
 import { plans } from "@/constants";
+import { useSimulatedDelay } from "@/hooks/use-simulated-delay";
+import PageLoading from "@/components/ui/page-loading";
 
 export default function Billing() {
+  const isLoading = useSimulatedDelay(1000); // 1 second delay
+
+  if (isLoading) {
+    return <PageLoading message="Loading billing..." />;
+  }
+
   return (
     <div className="space-y-6">
       <div>
