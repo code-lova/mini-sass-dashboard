@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mini SaaS Dashboard
 
-## Getting Started
+A minimal, production-grade SaaS dashboard built for the Frontend Developer Assessment.
 
-First, run the development server:
+## Setup Instructions
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. **Clone the repository:**
+   ```bash
+   git clone <your-repo-url>
+   cd <project-folder>
+   ```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+3. **Configure Firebase:**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+   - Create a `.env.local` file with your Firebase config keys as described in `/lib/firebase.ts`.
+   - Make sure Firebase Auth is enabled in your Firebase project.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+4. **Run the application:**
+   ```bash
+   npm run dev
+   ```
+5. **View in browser:**  
+   Open [http://localhost:3000](http://localhost:3000)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Notes on Decisions & Implementation Trade-offs
 
-To learn more about Next.js, take a look at the following resources:
+- **Authentication:**  
+  Chose **Firebase Auth** for user authentication to simulate real-world login flows. While setup is slightly more involved, it provides a familiar SaaS experience. User details are persisted after login via React Context API for simple, yet robust state management.
+- **UI Library:**  
+  Adopted **Shadcn UI** for rapid, consistent interface development. This enabled sleek component styling with minimal custom code.
+- **Forms:**  
+  Leveraged `react-hook-form` for efficient form handling with built-in validation and minimal boilerplate.
+- **Theme Management:**  
+  Utilized **next-themes** (Next.js built-in solution) to enable seamless light/dark mode toggling, persisting user preference in local storage.
+- **Dashboard Data:**  
+  Metrics such as monthly users, revenue, and churn are **mocked** rather than fetched from a backend due to time constraints, allowing focus on the frontend. API delays are simulated in data fetching to demonstrate loading states and skeleton components.
+- **State Management:**  
+  Opted for Context API instead of heavier solutions (like Redux) based on the project’s size and requirements. This keeps the code simple and maintainable.
+- **Code Structure & UX:**  
+  Scoped routing, component separation, and dashboard UI to balance code reusability, maintainability, and user experience. Chose solutions that allowed faster development without overcomplicating the tech stack or overengineering.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+_See source code for more details. For questions or improvements, please submit an issue or pull request._
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform]
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- ** deployment link:**
+https://mini-sass-dashboard.vercel.app/
+
