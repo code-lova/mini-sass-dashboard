@@ -30,7 +30,7 @@ export function MobileSidebarContent({
       {/* Header */}
       <div className="flex h-16 items-center border-b px-4">
         <Link
-          href="/dashboard"
+          href="/user/dashboard"
           className="flex items-center gap-2"
           onClick={onNavigate}
         >

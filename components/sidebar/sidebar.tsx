@@ -45,7 +45,7 @@ export function AppSidebar() {
           )}
         >
           {!isCollapsed && (
-            <Link href="/dashboard" className="flex items-center gap-2">
+            <Link href="/user/dashboard" className="flex items-center gap-2">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                 <LayoutDashboard className="h-4 w-4" />
               </div>
