@@ -6,7 +6,7 @@ A minimal, production-grade SaaS dashboard built for the Frontend Developer Asse
 
 1. **Clone the repository:**
    ```bash
-   git clone <your-repo-url>
+   git clone <https://github.com/code-lova/mini-sass-dashboard>
    cd <project-folder>
    ```
 2. **Install dependencies:**
