@@ -45,6 +45,14 @@ export default function Settings() {
     }
   }, [user?.displayName]);
 
+  useEffect(() => {
+    if (!mounted) return;
+    // Add a CSS class to enable color transition on the body
+    document.body.classList.add("theme-transition");
+    const cleanup = () => document.body.classList.remove("theme-transition");
+    return cleanup;
+  }, [mounted]);
+
   if (isLoading) {
     return <PageLoading message="Loading settings..." />;
   }
@@ -71,6 +79,16 @@ export default function Settings() {
     } finally {
       setIsSaving(false);
     }
+  };
+
+  const handleThemeChange = (value: string) => {
+    // Add the transition class
+    document.body.classList.add("theme-transition");
+    setTheme(value);
+    // Remove the class after the transition duration
+    setTimeout(() => {
+      document.body.classList.remove("theme-transition");
+    }, 500); // 500ms matches the CSS duration
   };
 
   return (
@@ -157,7 +175,7 @@ export default function Settings() {
               themes.map((t) => (
                 <button
                   key={t.value}
-                  onClick={() => setTheme(t.value)}
+                  onClick={() => handleThemeChange(t.value)}
                   className={cn(
                     "flex flex-col items-center gap-2 rounded-lg border-2 p-4 transition-all hover:bg-muted",
                     theme === t.value
